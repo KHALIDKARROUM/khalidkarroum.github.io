@@ -1,5 +1,34 @@
 import type { SkillGroup } from '@/types/portfolio';
 
+// Local brand assets keep the technology logos available without a third-party request.
+export const skillLogos: Record<string, string> = {
+  'scikit-learn': '/skills/scikit-learn.svg',
+  PyTorch: '/skills/pytorch.svg',
+  XGBoost: '/skills/xgboost.png',
+  LightGBM: '/skills/lightgbm.svg',
+  Python: '/skills/python.svg',
+  R: '/skills/r.svg',
+  pandas: '/skills/pandas.svg',
+  NumPy: '/skills/numpy.svg',
+  Jupyter: '/skills/jupyter.svg',
+  Matplotlib: '/skills/matplotlib.svg',
+  Seaborn: '/skills/seaborn.svg',
+  Plotly: '/skills/plotly.svg',
+  PostgreSQL: '/skills/postgresql.svg',
+  MySQL: '/skills/mysql.svg',
+  SQLite: '/skills/sqlite.svg',
+  MongoDB: '/skills/mongodb.svg',
+  Django: '/skills/django.svg',
+  FastAPI: '/skills/fastapi.svg',
+  Streamlit: '/skills/streamlit.svg',
+  AWS: '/skills/aws.svg',
+  'Microsoft Azure': '/skills/azure.svg',
+  Docker: '/skills/docker.svg',
+  'Docker Compose': '/skills/docker.svg',
+  'GitHub Actions': '/skills/github-actions.svg',
+  Git: '/skills/git.svg',
+};
+
 export const skillGroups: SkillGroup[] = [
   {
     title: 'Machine Learning',

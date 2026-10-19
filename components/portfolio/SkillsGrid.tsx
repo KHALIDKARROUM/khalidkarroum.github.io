@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { skillEvidence, skillGroups } from '@/data/skills';
+import { skillEvidence, skillGroups, skillLogos } from '@/data/skills';
 import { getProject } from '@/data/projects';
 import {
   BarChart3,
@@ -17,6 +17,8 @@ export function SkillsGrid() {
     <dl className="skills-list">
       {skillGroups.map((group, index) => {
         const Icon = icons[index % icons.length];
+        const tools = group.items.filter((item) => skillLogos[item]);
+        const concepts = group.items.filter((item) => !skillLogos[item]);
         return (
           <div className="skill-card" key={group.title}>
             <dt>
@@ -28,26 +30,44 @@ export function SkillsGrid() {
             <dd>
               <p>{group.description}</p>
               <ul className="skill-items">
-                {group.items.map((item) => {
+                {[...tools, ...concepts].map((item) => {
+                  const logo = skillLogos[item];
                   const evidence = skillEvidence[item];
                   const project = evidence
                     ? getProject(evidence.project)
                     : undefined;
+                  const label = logo ? (
+                    <span className="skill-tool-logo">
+                      <img
+                        src={logo}
+                        alt={item}
+                        width={56}
+                        height={32}
+                        loading="lazy"
+                      />
+                    </span>
+                  ) : (
+                    item
+                  );
                   return (
-                    <li key={item}>
-                      <span aria-hidden="true" />
+                    <li
+                      key={item}
+                      className={logo ? 'skill-tool' : 'skill-concept'}
+                      title={logo ? item : undefined}
+                    >
+                      {!logo && <span aria-hidden="true" />}
                       {project ? (
                         <Link
                           className="skill-evidence-link"
                           href={`/projects/${project.slug}${evidence.section ? '#' + evidence.section : ''}`}
                           aria-label={`${item} — see evidence in ${project.title}`}
                         >
-                          {item}
+                          {label}
                           <small>{project.title} ↗</small>
                         </Link>
                       ) : (
                         <span className="skill-familiarity">
-                          {item}
+                          {label}
                           <small>Familiarity</small>
                         </span>
                       )}
