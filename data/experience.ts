@@ -1,13 +1,8 @@
 export const experience = [
   {
-    id: 'delta-holding',
-    company: 'Delta Holding',
+    id: 'price-monitor-internship',
     focus: 'Python Development & Data Analysis',
     role: 'Python Developer & Data Analyst Intern',
-    startDate: '2026-09-01',
-    endDate: undefined,
-    period: 'Started 1 September 2026 · completed',
-    location: 'Skhirate, Rabat, Morocco',
     type: 'Completed internship',
     project: 'Price Monitor',
     projectSlug: 'price-monitor',

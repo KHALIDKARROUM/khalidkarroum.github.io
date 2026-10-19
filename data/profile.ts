@@ -25,7 +25,7 @@ export const profile = {
   },
   linkedIn: 'https://www.linkedin.com/in/khalid-karroum/',
   resume: {
-    path: '/Khalid-Karroum-CV.pdf?v=391611318eb7',
+    path: '/Khalid-Karroum-CV.pdf?v=5d4ff17ce0c6',
     available: true,
   },
   siteUrl: process.env.NEXT_PUBLIC_SITE_URL,

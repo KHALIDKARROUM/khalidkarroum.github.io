@@ -4,11 +4,11 @@ export const projects: Project[] = [
   {
     slug: 'price-monitor',
     title: 'Price Monitor',
-    eyebrow: 'Delta Holding · Internship Project',
+    eyebrow: 'Completed Internship Project',
     oneLine:
       'Energy-price monitoring, forecasting, and purchasing preparation in one dashboard.',
     summary:
-      'Built during my Delta Holding internship in Skhirate, Rabat, starting 1 September 2026. Price Monitor connects traceable market-data collection, SQL storage, time-series analysis, and a responsive dashboard for Brent, diesel, and supplier-entered bitumen prices.',
+      'Developed during a completed data-analysis internship, Price Monitor connects traceable market-data collection, SQL storage, time-series analysis, and a responsive dashboard for Brent, diesel, and supplier-entered bitumen prices.',
     problem:
       'Purchasing analysis depends on price information spread across public market sources and supplier documents. Manual comparisons make it difficult to follow trends, check data freshness, and prepare a budget using consistent units and dates.',
     outcome:

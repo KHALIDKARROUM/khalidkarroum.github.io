@@ -77,7 +77,7 @@ export default function AboutPage() {
                   {experience[0].project}{' '}
                   <ArrowUpRight size={12} aria-hidden="true" />
                 </Link>
-                <span>{experience[0].type} · {experience[0].company}</span>
+                <span>{experience[0].type}</span>
               </dd>
             </div>
             <div>
