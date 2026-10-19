@@ -71,13 +71,13 @@ export default function AboutPage() {
               </dd>
             </div>
             <div>
-              <dt>Building</dt>
+              <dt>Recent project</dt>
               <dd>
                 <Link href={`/projects/${experience[0].projectSlug}`}>
                   {experience[0].project}{' '}
                   <ArrowUpRight size={12} aria-hidden="true" />
                 </Link>
-                <span>Data internship · {experience[0].company}</span>
+                <span>{experience[0].type} · {experience[0].company}</span>
               </dd>
             </div>
             <div>

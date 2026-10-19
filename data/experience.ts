@@ -6,9 +6,9 @@ export const experience = [
     role: 'Python Developer & Data Analyst Intern',
     startDate: '2026-09-01',
     endDate: undefined,
-    period: '1 September 2026 – present',
+    period: 'Started 1 September 2026 · completed',
     location: 'Skhirate, Rabat, Morocco',
-    type: 'Internship',
+    type: 'Completed internship',
     project: 'Price Monitor',
     projectSlug: 'price-monitor',
     summary:

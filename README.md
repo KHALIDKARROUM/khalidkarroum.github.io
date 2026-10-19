@@ -12,7 +12,7 @@ The theme button in the header switches between dark and light appearances and r
 - `/projects` — all six projects, including Price Monitor
 - `/projects/[slug]` — project details
 - `/skills` — skill groups and technologies
-- `/about` — personal introduction, interests, working approach, and current study and internship context
+- `/about` — personal introduction, interests, working approach, current study, and completed internship project
 - `/contact` — email, browser-viewable CV, detailed internship availability, and contact links
 
 ## Local setup
@@ -47,7 +47,7 @@ For the Vercel build, run `npm run build:vercel`.
 
 Email, LinkedIn, GitHub, and the CV are shown on the Contact page and in the shared contact links. Edit `data/profile.ts` to maintain contact details and the preferred start, duration, target roles, and remote/relocation preferences. An undefined work preference is shown as “To discuss”; set it only when confirmed. Keep education and experience dates tied to confirmed information.
 
-The English CV is included at `public/Khalid-Karroum-CV.pdf`, and `resume.available` is enabled. The “View CV” links open the PDF in a new browser tab. Replace that file and update the version query in `resume.path` when the CV changes to avoid cached copies. The current PDF was supplied as `Karroum_Khalid_resume.pdf` from the owner's Desktop. The owner's earlier CV supplied the January 2027 start and six-month duration shown in availability details. The owner confirmed the email and Delta Holding dates/location in this task. The internship title describes the project work rather than a verified HR title.
+The English CV is included at `public/Khalid-Karroum-CV.pdf`, and `resume.available` is enabled. The “View CV” links open the PDF in a new browser tab. Replace that file and update the version query in `resume.path` when the CV changes to avoid cached copies. The current PDF was supplied as `Karroum_Khalid_resume.pdf` from the owner's Desktop. The owner's earlier CV supplied the January 2027 start and six-month duration shown in availability details. The owner confirmed the email and Delta Holding start date/location in this task, and later confirmed that the internship is complete and he no longer works there. The exact completion date has not been supplied. The internship title describes the project work rather than a verified HR title.
 
 Price Monitor screenshots were captured from a local run against its public historical snapshot, without supplier quotes. The case study's numbers are tied to `public/projects/price-monitor/evaluation.md`, an excerpt of the project's generated research results. They do not represent measured business impact.
 
