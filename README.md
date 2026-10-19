@@ -12,7 +12,7 @@ The theme button in the header switches between dark and light appearances and r
 - `/projects` — all six projects, including Price Monitor
 - `/projects/[slug]` — project details
 - `/skills` — skill groups and technologies
-- `/about` — introduction, education, interests, and working approach
+- `/about` — personal introduction, interests, working approach, and current study and internship context
 - `/contact` — email, browser-viewable CV, detailed internship availability, and contact links
 
 ## Local setup

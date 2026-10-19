@@ -13,9 +13,8 @@ import { ProjectCard } from '@/components/portfolio/ProjectCard';
 import { ResumeLink } from '@/components/portfolio/ResumeLink';
 import { SectionHeading } from '@/components/portfolio/SectionHeading';
 import { SkillsGrid } from '@/components/portfolio/SkillsGrid';
-import { education } from '@/data/education';
 import { projects } from '@/data/projects';
-import { profile, technicalInterests } from '@/data/profile';
+import { profile } from '@/data/profile';
 
 export default function Home() {
   const [primaryRole, secondaryRole] = profile.role.split(' & ');
@@ -77,54 +76,34 @@ export default function Home() {
       </section>
       <section
         id="about"
-        className="home-section about-preview"
+        className="home-section about-personal-preview"
         aria-labelledby="about-title"
       >
-        <div>
-          <SectionHeading
-            label="BEHIND THE WORK"
-            title="About"
-            id="about-title"
-          />
+        <div className="personal-preview-heading">
+          <p className="eyebrow">A LITTLE ABOUT ME</p>
+          <h2 id="about-title">
+            Curious about data.
+            <br />
+            <span>Hands-on with ideas.</span>
+          </h2>
+          <p className="personal-preview-location">
+            <MapPin size={13} aria-hidden="true" /> {profile.location}
+          </p>
+        </div>
+        <div className="personal-preview-copy">
           <p>
-            I’m {profile.name}, based in {profile.location}. I work on data
-            analysis, machine learning, and backend development.
+            I’m {profile.name}. I work with data, machine learning, and
+            software. What I enjoy is connecting the pieces: understanding a
+            problem, testing an idea, and turning it into something useful.
           </p>
           <p>
-            I build projects that cover data preparation, model evaluation, and
-            application development. I’m particularly interested in financial
-            risk and anomaly detection.
+            I’m drawn to financial data science, unusual patterns, and the
+            challenge of making a model work as part of a real application.
+            Building is how I put those interests into practice.
           </p>
           <Link className="text-link" href="/about">
             More about me <ArrowRight size={16} aria-hidden="true" />
           </Link>
-          <Link
-            className="text-link home-experience-link"
-            href="/projects/price-monitor"
-          >
-            Price Monitor · Delta Holding internship{' '}
-            <ArrowUpRight size={16} aria-hidden="true" />
-          </Link>
-        </div>
-        <div className="about-preview-details">
-          <p className="eyebrow">EDUCATION</p>
-          {education.slice(0, 1).map((item) => (
-            <div className="education-card" key={item.id}>
-              <span className="education-dot" aria-hidden="true" />
-              <p>{item.degree}</p>
-              <h3>{item.field}</h3>
-              <p>{item.institution}</p>
-              <span className="muted">
-                {item.startYear} — {item.endYear} (expected) · {item.location}
-              </span>
-            </div>
-          ))}
-          <p className="eyebrow interests-label">INTERESTS</p>
-          <ul className="tech-tags">
-            {technicalInterests.map((interest) => (
-              <li key={interest}>{interest}</li>
-            ))}
-          </ul>
         </div>
       </section>
       <section

@@ -1,223 +1,174 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import {
-  ArrowRight,
-  ArrowUpRight,
-  BriefcaseBusiness,
-  GraduationCap,
-  Languages,
-  MapPin,
-} from 'lucide-react';
+import { ArrowRight, ArrowUpRight, MapPin } from 'lucide-react';
 import { BackToHome } from '@/components/portfolio/BackToHome';
-import { ContactCTA } from '@/components/portfolio/ContactCTA';
-import { EducationTimeline } from '@/components/portfolio/EducationTimeline';
-import { SectionHeading } from '@/components/portfolio/SectionHeading';
+import { GithubIcon, LinkedInIcon } from '@/components/portfolio/BrandIcons';
+import { ResumeLink } from '@/components/portfolio/ResumeLink';
 import { education } from '@/data/education';
 import { experience } from '@/data/experience';
-import { languages, profile, technicalInterests } from '@/data/profile';
+import { languages, profile } from '@/data/profile';
 
 export const metadata: Metadata = {
   title: 'About',
   description:
-    'Khalid Karroum’s experience at Delta Holding, education in data science and information systems security, and language skills.',
+    'Meet Khalid Karroum: his interests in data and machine learning, his hands-on approach to building, and what he’s working on now.',
 };
 
 export default function AboutPage() {
-  const currentEducation = education[0];
-
   return (
-    <main id="main-content" className="inner-page about-page" tabIndex={-1}>
+    <main
+      id="main-content"
+      className="inner-page about-page about-personal"
+      tabIndex={-1}
+    >
       <BackToHome />
-      <section className="about-hero" aria-labelledby="about-title">
-        <div className="about-intro">
-          <p className="eyebrow">
-            <span aria-hidden="true" />
-            BEHIND THE WORK
-          </p>
-          <h1 id="about-title">
-            About<span className="heading-dot">.</span>
+
+      <header className="personal-introduction">
+        <div className="personal-introduction-copy">
+          <p className="eyebrow">A LITTLE ABOUT ME</p>
+          <h1>
+            Hi, I’m <span>Khalid.</span>
           </h1>
-          <p className="about-name">{profile.name}</p>
-          <p className="about-role">{profile.role}</p>
-          <p>{profile.positioning}</p>
-          <p>
-            I build projects that cover data preparation, model evaluation, and
-            application development. I’m particularly interested in financial
-            risk and anomaly detection.
+          <p className="personal-tagline">
+            Curious about data.
+            <br />
+            Hands-on with ideas.
           </p>
-          <div className="about-actions">
-            <Link href="/projects" className="button button-primary">
-              View my projects <ArrowUpRight size={16} aria-hidden="true" />
-            </Link>
-            <Link href="/contact" className="text-link">
-              Let’s connect <ArrowRight size={15} aria-hidden="true" />
-            </Link>
-          </div>
+          <p className="personal-lead">
+            I work with data, machine learning, and software. What I enjoy is
+            connecting the pieces: understanding a problem, testing an idea, and
+            turning it into something useful.
+          </p>
+          <nav className="personal-socials" aria-label="Find me online">
+            <a href={profile.github}>
+              <GithubIcon size={16} /> GitHub{' '}
+              <ArrowUpRight size={13} aria-hidden="true" />
+            </a>
+            <a href={profile.linkedIn}>
+              <LinkedInIcon size={16} /> LinkedIn{' '}
+              <ArrowUpRight size={13} aria-hidden="true" />
+            </a>
+          </nav>
         </div>
-        <aside className="about-profile-card" aria-label="Profile at a glance">
-          <div className="profile-card-top">
-            <span className="profile-monogram" aria-hidden="true">
-              KK
-            </span>
-            <span className="eyebrow">AT A GLANCE</span>
-          </div>
-          <dl className="profile-facts">
+
+        <aside className="personal-now" aria-labelledby="personal-now-title">
+          <p className="eyebrow" id="personal-now-title">
+            <span className="personal-status" aria-hidden="true" /> ME, RIGHT
+            NOW
+          </p>
+          <dl>
             <div>
-              <dt>
-                <MapPin size={15} aria-hidden="true" />
-                BASED IN
-              </dt>
-              <dd>{profile.location}</dd>
-            </div>
-            <div>
-              <dt>
-                <GraduationCap size={15} aria-hidden="true" />
-                CURRENT STUDIES
-              </dt>
+              <dt>Based in</dt>
               <dd>
-                {currentEducation.degree}
-                <span>{currentEducation.field}</span>
+                <MapPin size={13} aria-hidden="true" /> {profile.location}
               </dd>
             </div>
             <div>
-              <dt>
-                <BriefcaseBusiness size={15} aria-hidden="true" />
-                OPEN TO
-              </dt>
+              <dt>Learning</dt>
               <dd>
-                PFE & internship opportunities<span>Data science & AI</span>
+                {education[0].degree}
+                <span>{education[0].field}</span>
+              </dd>
+            </div>
+            <div>
+              <dt>Building</dt>
+              <dd>
+                <Link href={`/projects/${experience[0].projectSlug}`}>
+                  {experience[0].project}{' '}
+                  <ArrowUpRight size={12} aria-hidden="true" />
+                </Link>
+                <span>Data internship · {experience[0].company}</span>
+              </dd>
+            </div>
+            <div>
+              <dt>Languages</dt>
+              <dd>
+                {languages
+                  .map((language) => `${language.name} · ${language.level}`)
+                  .join(' / ')}
               </dd>
             </div>
           </dl>
-          <div className="profile-language-preview">
-            <Languages size={15} aria-hidden="true" />
-            French · B2
-            <span />
-            English · B2
-            <span />
-            Arabic · Native
-          </div>
         </aside>
-      </section>
+      </header>
 
-      <section className="about-block" aria-labelledby="experience-title">
-        <SectionHeading
-          label="01 / PROFESSIONAL EXPERIENCE"
-          title="Experience"
-          id="experience-title"
-        />
-        {experience.map((item) => (
-          <article key={item.id} className="experience-card">
-            <div className="experience-heading">
-              <span className="company-monogram" aria-hidden="true">
-                DH
-              </span>
-              <div>
-                <p className="experience-type">{item.type}</p>
-                <h3>{item.company}</h3>
-                <p className="experience-focus">{item.role}</p>
-              </div>
-              <span className="project-label">{item.project}</span>
-            </div>
-            <dl className="experience-facts">
-              <div>
-                <dt>Dates</dt>
-                <dd>
-                  <time dateTime={item.startDate}>1 September 2026</time> –
-                  present
-                </dd>
-              </div>
-              <div>
-                <dt>Location</dt>
-                <dd>{item.location}</dd>
-              </div>
-            </dl>
-            <p className="experience-summary">{item.summary}</p>
-            <ul className="experience-highlights">
-              {item.highlights.map((highlight) => (
-                <li key={highlight}>{highlight}</li>
-              ))}
-            </ul>
-            <ul className="tech-tags" aria-label="Technologies and focus areas">
-              {item.technologies.map((technology) => (
-                <li key={technology}>{technology}</li>
-              ))}
-            </ul>
-            <Link
-              className="text-link experience-project-link"
-              href={`/projects/${item.projectSlug}`}
-            >
-              Explore {item.project}{' '}
-              <ArrowUpRight size={16} aria-hidden="true" />
+      <section className="personal-section" aria-labelledby="curiosity-title">
+        <h2 id="curiosity-title">
+          What keeps <br />
+          me curious.
+        </h2>
+        <div className="personal-section-body">
+          <p>
+            Problems where data helps make sense of something: understanding
+            financial risk, spotting unusual patterns, or working out what a
+            changing market is telling us.
+          </p>
+          <p>
+            That’s what draws me to statistical modeling, anomaly detection, and
+            financial data science. I also care about the software around a
+            model: how it’s used, tested, and kept reliable.
+          </p>
+          <nav
+            className="personal-interests"
+            aria-label="Explore my interests through my work"
+          >
+            <Link href="/projects/aegis-credit">
+              Financial data science{' '}
+              <ArrowUpRight size={13} aria-hidden="true" />
             </Link>
-          </article>
-        ))}
-      </section>
-
-      <section className="about-block" aria-labelledby="education-title">
-        <SectionHeading
-          label="02 / ACADEMIC JOURNEY"
-          title="Education"
-          id="education-title"
-        />
-        <EducationTimeline />
-      </section>
-
-      <section className="about-block" aria-labelledby="languages-title">
-        <SectionHeading
-          label="03 / COMMUNICATION"
-          title="Languages"
-          id="languages-title"
-        />
-        <div className="language-grid">
-          {languages.map((language) => (
-            <article className="language-card" key={language.name}>
-              <span className="language-code" aria-hidden="true">
-                {language.code}
-              </span>
-              <div>
-                <h3>{language.name}</h3>
-                <p>
-                  {language.description}
-                  {language.level !== 'Native' && ' · CEFR'}
-                </p>
-              </div>
-              <span
-                className="language-level"
-                aria-label={language.name + ' level ' + language.level}
-              >
-                {language.level}
-              </span>
-            </article>
-          ))}
+            <Link href="/projects/netguard">
+              Anomaly detection <ArrowUpRight size={13} aria-hidden="true" />
+            </Link>
+            <Link href="/skills">
+              Machine learning systems{' '}
+              <ArrowUpRight size={13} aria-hidden="true" />
+            </Link>
+          </nav>
         </div>
       </section>
 
-      <section className="about-block" aria-labelledby="approach-title">
-        <SectionHeading
-          label="04 / MY APPROACH"
-          title="How I work"
-          id="approach-title"
-        />
-        <ul className="approach-list">
-          <li>Define the problem and establish a baseline.</li>
-          <li>Keep training, model selection, and testing separate.</li>
-          <li>Use consistent preprocessing in training and inference.</li>
-          <li>Document limitations and test the application.</li>
-        </ul>
-        <div className="about-interests">
-          <h3>Interests</h3>
-          <ul className="tech-tags">
-            {technicalInterests.map((interest) => (
-              <li key={interest}>{interest}</li>
-            ))}
-          </ul>
+      <section className="personal-section" aria-labelledby="mindset-title">
+        <h2 id="mindset-title">
+          How I like <br />
+          to work.
+        </h2>
+        <div className="personal-section-body">
+          <p>
+            I like understanding why a result works, where it falls short, and
+            whether it answers the original question. I start with a simple
+            baseline, test my assumptions, and make the limitations clear.
+          </p>
+          <p>
+            Building helps me learn. Connecting the data, the model, and the
+            interface makes me think about details that a notebook on its own
+            can miss.
+          </p>
+          <p className="personal-principle">
+            Understand it. Test it. Make it useful.
+          </p>
         </div>
       </section>
 
-      <ContactCTA>
-        <p>{profile.availability}</p>
-      </ContactCTA>
+      <section
+        className="personal-connect"
+        aria-labelledby="personal-connect-title"
+      >
+        <div>
+          <p className="eyebrow">LET’S CONNECT</p>
+          <h2 id="personal-connect-title">Have something in mind?</h2>
+          <p>
+            I’m open to conversations about data, machine learning, and things
+            worth building. I’m also looking for a six-month PFE internship
+            starting in {profile.internship.startDate}.
+          </p>
+        </div>
+        <div className="personal-connect-actions">
+          <Link className="button button-primary" href="/contact">
+            Say hello <ArrowRight size={16} aria-hidden="true" />
+          </Link>
+          <ResumeLink />
+        </div>
+      </section>
     </main>
   );
 }
