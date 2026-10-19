@@ -5,7 +5,6 @@ import { BackToHome } from '@/components/portfolio/BackToHome';
 import { GithubIcon, LinkedInIcon } from '@/components/portfolio/BrandIcons';
 import { ResumeLink } from '@/components/portfolio/ResumeLink';
 import { education } from '@/data/education';
-import { experience } from '@/data/experience';
 import { languages, profile } from '@/data/profile';
 
 export const metadata: Metadata = {
@@ -71,13 +70,10 @@ export default function AboutPage() {
               </dd>
             </div>
             <div>
-              <dt>Recent project</dt>
+              <dt>Focus</dt>
               <dd>
-                <Link href={`/projects/${experience[0].projectSlug}`}>
-                  {experience[0].project}{' '}
-                  <ArrowUpRight size={12} aria-hidden="true" />
-                </Link>
-                <span>{experience[0].type}</span>
+                Data science &amp; machine learning
+                <span>Turning data into useful applications.</span>
               </dd>
             </div>
             <div>
